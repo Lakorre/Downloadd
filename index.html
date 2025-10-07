@@ -220,6 +220,9 @@
         .app-card[data-name="rockstar"] .app-icon::before { content: '⭐'; }
         .app-card[data-name="epic-games"] .app-icon::before { content: '🚀'; }
         .app-card[data-name="steam-tools"] .app-icon::before { content: '🛠️'; }
+        .app-card[data-name="minecraft"] .app-icon::before { content: '🧱'; }
+        .app-card[data-name="valorant"] .app-icon::before { content: '🎯'; }
+        .app-card[data-name="fortnite"] .app-icon::before { content: '🏗️'; }
         .app-card[data-name="obs"] .app-icon::before { content: '📹'; }
         .app-card[data-name="medal"] .app-icon::before { content: '🏆'; }
         .app-card[data-name="cupcat"] .app-icon::before { content: '🎪'; }
@@ -379,7 +382,28 @@
                     <div class="app-icon"></div>
                     <h3 class="app-name">SteamTools</h3>
                     <p class="app-description">أدوات متقدمة لإدارة وتخصيص منصة Steam مع ميزات إضافية للاعبين</p>
-                    <a href="https://cdn.discordapp.com/attachments/1373402736359641201/1399016162876063761/st-setup-1.8.16.exe?ex=68e662d5&is=68e51155&hm=4b38034555e6c5c32ab88f302b1d9fedfb7a42f720aed5c649fb00c37a09f0de&" download>تحميل</a>
+                    <a href="https://cdn.discordapp.com/attachments/1373402736359641201/1399016162876063761/st-setup-1.8.16.exe?ex=68e662d5&is=68e51155&hm=4b38034555e6c5c32ab88f302b1d9fedfb7a42f720aed5c649fb00c37a09f0de&" class="download-btn" download>تحميل</a>
+                </div>
+
+                <div class="app-card" data-category="gaming" data-name="minecraft">
+                    <div class="app-icon"></div>
+                    <h3 class="app-name">Minecraft</h3>
+                    <p class="app-description">لعبة البناء والإبداع الأكثر شعبية في العالم مع إمكانيات لا محدودة</p>
+                    <div class="download-btn">قريباً</div>
+                </div>
+
+                <div class="app-card" data-category="gaming" data-name="valorant">
+                    <div class="app-icon"></div>
+                    <h3 class="app-name">Valorant</h3>
+                    <p class="app-description">لعبة الرماية التكتيكية من Riot Games مع أبطال فريدين وقدرات خاصة</p>
+                    <div class="download-btn">قريباً</div>
+                </div>
+
+                <div class="app-card" data-category="gaming" data-name="fortnite">
+                    <div class="app-icon"></div>
+                    <h3 class="app-name">Fortnite</h3>
+                    <p class="app-description">لعبة البقاء الشهيرة مع وضع Battle Royale والإبداع</p>
+                    <div class="download-btn">قريباً</div>
                 </div>
             </div>
         </div>
@@ -474,7 +498,7 @@
                     <div class="app-icon"></div>
                     <h3 class="app-name">PrivaZer</h3>
                     <p class="app-description">أداة تنظيف متقدمة لحذف الملفات المؤقتة وحماية الخصوصية</p>
-                    <a href="https://privazer.com/ar/download.php" download>تحميل</a>
+                    <a href="https://privazer.com/ar/download.php" class="download-btn" download>تحميل</a>
                 </div>
 
                 <div class="app-card" data-category="utilities" data-name="nvidia-app">
@@ -488,7 +512,7 @@
                     <div class="app-icon"></div>
                     <h3 class="app-name">Revo Uninstaller</h3>
                     <p class="app-description">أداة إزالة التطبيقات المتقدمة مع تنظيف شامل للبقايا والملفات</p>
-                    <a href="https://www.revouninstaller.com/pt/start-freeware-download/" download>تحميل</a>
+                    <a href="https://www.revouninstaller.com/pt/start-freeware-download/" class="download-btn" download>تحميل</a>
                 </div>
             </div>
         </div>
@@ -506,9 +530,11 @@
         // تأثير النقر على البطاقات
         const appCards = document.querySelectorAll('.app-card');
         appCards.forEach(card => {
-            card.addEventListener('click', function(e
-
-
-
-
-
+            card.addEventListener('click', function(e) {
+                if (!e.target.classList.contains('download-btn')) {
+                    const ripple = document.createElement('div');
+                    ripple.style.position = 'absolute';
+                    ripple.style.borderRadius = '50%';
+                    ripple.style.background = 'rgba(139, 92, 246, 0.3)';
+                    ripple.style.transform = 'scale(0)';
+                    ripple.style.animation = 'r
